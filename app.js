@@ -29,12 +29,10 @@ var drawBoard = function(){
    var boardDiv = document.getElementById('game');
    boardDiv.innerHTML = '';
    for (var r=1; r<4; r++){
-      console.log('row is ' +r);
       row = document.createElement('ul');
       row.className = 'row';
       row.id = 'r'+r;
       for (var c=1; c<4; c++){
-         console.log('column is '+c);
          column = document.createElement('li');
          column.setAttribute('value', ' ');
          column.setAttribute('playable', true);
