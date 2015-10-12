@@ -1,0 +1,102 @@
+@import url(https://fonts.googleapis.com/css?family=Rye);
+@import url(https://fonts.googleapis.com/css?family=Maiden+Orange);
+
+
+body {
+  background: url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/tileable_wood_texture.png);
+}
+
+#content {
+  margin: 0 auto;
+  width: 600px;
+  text-align: center;
+}
+
+#header {
+  margin-bottom: 20px;
+}
+
+#greeting {
+   width: 500px;
+   margin: 0 auto;
+}
+
+#title {
+  font-family: 'Rye', cursive;
+  width: 500px;
+  font-size: 80px;
+}
+
+button {
+  margin-bottom: 20px;
+}
+ul {
+   height: 100px;
+}
+
+li {
+   border: 2px solid brown;
+   margin: 0 10px;
+   width: 100px;
+   height: 100px;
+   padding: 0;
+   display: inline-block;
+   font-size: 80px;
+   line-height: 90px;
+}
+
+#horseshoe,
+#sherrif {
+   height: 80px;
+   width: 80px;
+}
+
+
+#info {
+  font-family: 'Maiden Orange', cursive;
+  font-size: 50px;
+}
+
+
+/*#timer {
+  font-family: 'Maiden Orange', cursive;
+  font-size: 20px;
+}*/
+
+
+
+
+
+/*.row {
+  clear: both;
+}
+
+.column {
+  border: 1px solid #595139;
+  float: left;
+  font-family: 'Rye', cursive;
+  font-size: 50px;
+  height: 65px;
+  margin: 5px;
+  text-align: center;
+  vertical-align: middle;
+  width: 50px;
+}
+
+.column:hover {
+  background-color: #A6977B;
+}
+
+/* when two cards match apply this class to them
+.found {
+  background-color: #595139;
+  color: #FFFFFF;
+}
+
+/* apply to every card when the user wins
+.won {
+  background-color: #F2F0CE;
+  border: 1px solid #83A603;
+  color: #83A603;
+}
+*/
