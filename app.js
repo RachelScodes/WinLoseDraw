@@ -3,20 +3,16 @@
 
 //global var # of turns
 var turnCount = 0;
-var hWins = 0;
-var sWins = 0;
-var playTo = 0;
-
 
 //determin player based on turnCount
 function player(){
-   if((turnCount % 2) === 0) {
+   if((turnCount % 2) === 1) {
       //x is horseshoe
-      return '<img src="images/horseshoe.png" id="X"></img>';
+      return '<img src="http://www.trinitybc.org/vbs2010/files/horseshoe%20home.png" id="X"></img>';
 
       //o is sheriff's badge
    } else {
-      return '<img src="images/badge.png" id="O"></img>';
+      return '<img src="http://themixnow.fm/wp-content/uploads/2013/03/Badge.png" id="O"></img>';
    }
 };
 
@@ -89,6 +85,11 @@ function makePlay(){
    if (turnCount>5) {
       checkForMatch();
    }
+
+   //if it's a draw:
+   if (turnCount>9){
+      end();
+   }
 };
 
 
@@ -98,23 +99,22 @@ function end(){
 
    //no winner
    if (turnCount>9){
-      return 'It\'s a DRAW! Nobody wins kiddo';
-   } else if ((turnCount % 2) === 1) {
+      alert('It\'s a DRAW! Nobody wins kiddo');
+   }
+
+   //since turncount goes up on click,
+   //we need to roll BACK one to see
+   //who clicked to win
+   else if (((turnCount-1) % 2) === 1) {
       //x is winner
       //x is horseshoe
-      hWins++;
-      return 'Horseshoe is the winner!';
+      alert('Horseshoe is the winner!');
 
-   } else {
+   }
+   else {
       //o is winner
       //o is sheriff's badge
-      sWins++;
-      return 'Sheriff is the winner!';
-   }
-   for (var i =1; i<10; i++){
-      var wipe = document.getElementById('id'+i);
-      wipe.removeEventListener;
-      debugger
+      alert('Sheriff is the winner!');
    }
 
    //reset game
@@ -128,24 +128,6 @@ function end(){
    reset.innerHTML = 'Click to try again, punk';
    document.getElementById('info').appendChild(reset);
    reset.addEventListener('click', game.start);
-
-   if (hWins + sWins >= 1 ){
-      var scoreBoard = document.createElement('div');
-      scoreBoard.id = 'scoreBoard';
-      scoreBoard.innerHTML = 'Horseshoe: '+ hWins + '<br><br> Sheriff '+ sWins;
-      document.getElementById('game').appendChild(scoreBoard);
-   } else if (hWins + sWins === playTo) {
-      if (hWins > sWins) {
-         alert('HORSESHOE is the last man standing\n\nThe slate will be wiped clean in 5 seconds!');
-      } else {
-         alert('SHERIFF is the last man standing\n\nThe slate will be wiped clean in 5 seconds!')
-      }
-      boardDiv = document.getElementById('game');
-      boardDiv.innerHTML = '<img src="images/badge.png"></img>';
-      document.body.setTimeout(function () {
-         window.location.reload()
-      }, 5000);
-   }
 
 }
 
@@ -162,6 +144,7 @@ function checkForMatch(){
       } chkMe = [];
    }
 
+   console.log('check for match');
    var chkMe = [];
    //check columns
    for (var i=0; i<3; i++){
@@ -205,12 +188,10 @@ function checkForMatch(){
 var game = {
    // addEventListener('click')
    gameOn: false,
-   maxTurns: playTo,
+   maxTurns: 9,
    start: function(){
       game.gameOn = true;
-      turnCount = 1;
-      playTo = parseInt(prompt('We\'ll play to best of...'));
-
+      turnCount = 1,
       document.getElementById('info').innerHTML = '';
       if (document.getElementById('start')){
          document.querySelector('.button').removeChild(button);
@@ -222,65 +203,3 @@ var game = {
 
 var button = document.getElementById('start');
 button.addEventListener('click', game.start);
-
-
-//code graveyard
-
-// var game = {
-//    // addEventListener('click')
-//    gameOn: false,
-//    turnCount: 1,
-//    maxTurns: 9,
-//    start: function(){
-//       document.getElementById('info').innerHTML = '';
-//       this.gameOn = true;
-//       drawBoard();
-//       while (this.gameOn){
-//          // console.log(this);
-//          console.log('turnCount:' + this.turnCount)
-//          this.turnCount++;
-//          if (this.turnCount>this.maxTurns){
-//             // console.log(this);
-//             console.log('Game over!');
-//             this.gameOn=false;
-//          }
-//       }
-//    },
-// };
-
-//    //if match across row
-//    if ((board[0][0] === board[0][1] && board[0][1] === board[0][2]) ||
-//       (board[1][0] === board[1][1] && board[1][1] === board[1][2]) ||
-//       (board[2][0] === board[2][1] && board[2][1] === board[2][2])) {
-//          this.gameOver(player);
-//    }
-//    //match down column
-//    else if ((board[0][0] === board[1][0] && board[1][0] === board[2][0]) ||
-//       (board[0][1] === board[1][1] && board[1][1] === board[2][1]) ||
-//       (board[0][2] === board[1][2] && board[1][2] === board[2][2])) {
-//          this.gameOver(player);
-//    }
-//    //diagonal match
-//    else if ((board[0][0] === board[1][1] && board[1][1] === board[2][2]) ||
-//    (board[0][2] === board[1][1] && board[1][1] === board[2][0])) {
-//          this.gameOver(player);
-//    } else {
-//    gameOver = function(){
-//       gameOn = 'false';
-//       return player() + ' is the winner!';
-//    }
-// };
-
-// function Cell(value) {
-//    this.value = value;
-//    this.id = id;
-//    this.setState = function(input){
-//       this.value = input;
-//    };
-//    this.playable = true;
-//    this.addEventListener('click', function(){
-//       if (playable)
-//          var data = player();
-//          this.innerHTML = this.data;
-//    });
-// }
