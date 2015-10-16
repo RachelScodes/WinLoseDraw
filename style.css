@@ -1,0 +1,88 @@
+@import url(https://fonts.googleapis.com/css?family=Rye);
+@import url(https://fonts.googleapis.com/css?family=Maiden+Orange);
+
+
+body {
+  background: url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/tileable_wood_texture.png);
+}
+#game {
+   height: auto;
+   margin-bottom: 20px;
+}
+
+#content {
+  margin: 0 auto;
+  width: 750px;
+  overflow: hidden;
+  text-align: center;
+}
+
+#header {
+  margin-bottom: 20px;
+}
+
+#greeting {
+   text-align: center;
+   width: 500px;
+   margin: 0 auto;
+}
+
+#title {
+  font-family: 'Rye', cursive;
+  width: 500px;
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+button {
+  margin-bottom: 20px;
+  height: 30px;
+  font-size: 20px;
+}
+
+ul {
+   height: 100px;
+   width: 500px;
+   margin: 0 auto 15 auto;
+   display: inline-block;
+   padding: 0px;
+   list-style-type: none;
+}
+
+li,
+li:active {
+   border: 2px solid brown;
+   margin: 0 15px 0 0;
+   width: 110px;
+   height: 110px;
+   padding: 0;
+   list-style: none;
+   display: inline-block;
+   font-size: 70px;
+   position: relative;
+}
+
+#X, #O {
+   height: 110px;
+   width: 110px;
+   margin: 0;
+   padding: 0;
+}
+
+
+#info, button {
+  font-family: 'Maiden Orange', cursive;
+  font-size: 30px;
+  height: auto;
+}
+
+.pics {
+   height: 26px;
+   width: 26px;
+}
+
+#scoreBoard {
+   float: right;
+   width: 100px;
+   margin: 0 0 0 30px;
+}
